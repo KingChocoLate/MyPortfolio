@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>TP09</title>
 </head>
 <body>
         <div class="mt-5 flex justify-center">
-            <div class="flex flex-col justify-center items-center w-[300px] h-[500px] border-2 border-black shadow-lg shadow-black gap-2">
+            <div class="flex flex-col justify-center items-center w-[300px] h-[500px] border-2 border-black shadow-lg shadow-black gap-10">
                 <div class="font-bold text-4xl text-blue-950">Counter</div>
-                <div>0</div>
-                <div>
-                    <button>DECREASE</button>
+                <div id="kdmv" class="text-8xl text-green-700 font-semibold">0</div>
+                <div class="flex flex-row  gap-8">
+                    <button onclick="Decrease()" class="border-2 border-black rounded-lg w-[90px] bg-blue-500">DECREASE</button>
+                    <button onclick="Reset()">RESET</button>
+                    <button onclick="Increase()">INCREASE</button>
                 </div>
             </div>
         </div>
-
+        <script src="tp9Script.js"></script>
+         
 </body>
 </html>
+
