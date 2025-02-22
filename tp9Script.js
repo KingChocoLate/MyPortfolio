@@ -29,14 +29,22 @@ function Increase(){
     counter.Increase();
 }
 
-function handleMouseOver() {
-    document.getElementById("decrease").style.backgroundColor = 'yellow';
+function handleMouseOver(event) {
+    event.target.style.backgroundColor = 'gray';
 }
 
-function handleMouseOut() {
+function handleMouseOut(event) {
     event.target.style.backgroundColor = '';
 }
-
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('decrease').addEventListener('mouseover', handleMouseOver);
+    document.getElementById('decrease').addEventListener('mouseout', handleMouseOut);
+    document.getElementById('increase').addEventListener('mouseover', handleMouseOver);
+    document.getElementById('increase').addEventListener('mouseout', handleMouseOut);
+    document.getElementById('reset').addEventListener('mouseover', handleMouseOver);
+    document.getElementById('reset').addEventListener('mouseout', handleMouseOut);
+    d
+});
 //Ex02
 
 class Color{
