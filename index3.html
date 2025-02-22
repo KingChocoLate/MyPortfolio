@@ -7,19 +7,51 @@
     <title>TP09</title>
 </head>
 <body>
-        <div class="mt-5 flex justify-center">
+        <div class="mt-5 flex flex-col justify-center items-center ">
             <div class="flex flex-col justify-center items-center w-[300px] h-[500px] border-2 border-black shadow-lg shadow-black gap-10">
                 <div class="font-bold text-4xl text-blue-950">Counter</div>
                 <div id="kdmv" class="text-8xl text-green-700 font-semibold">0</div>
-                <div class="flex flex-row  gap-8">
-                    <button onclick="Decrease()" class="border-2 border-black rounded-lg w-[90px] bg-blue-500">DECREASE</button>
-                    <button onclick="Reset()">RESET</button>
-                    <button onclick="Increase()">INCREASE</button>
+                <div class="flex flex-row  gap-5">
+                    <button id="decrease" onmouseover="handleMouseOver()" onclick="Decrease()" class="border-2 border-black rounded-lg w-[90px]">DECREASE</button>
+                    <button id="reset" onmouseover="handleMouseOver()" onclick="Reset()" class="border-2 border-black rounded-lg w-[60px]">RESET</button>
+                    <button id="increase" onmouseover="handleMouseOver()" onclick="Increase()" class="border-2 border-black rounded-lg w-[90px]">INCREASE</button>
+                </div>
+            </div>
+            
+
+            <div class="mt-20 flex flex-col w-[300px] h-[590px] border-2 border-black shadow-lg shadow-black gap-2">
+                <p class="mt-4 pl-6 flex text-xs text-blue-500">Random Color Generator</p>
+                <div class="flex flex-col justify-center items-center">
+                    <div class="flex flex-col items-center w-[270px] h-[180px] bg-blue-500">
+                        <div class="mt-2 p-2 flex justify-center w-[260px] h-[100px] bg-black rounded-sm">
+                            <p class="text-white font-semibold text-xl tracking-wider">Background Color :</p>
+                            <p class="text-white font-semibold text-xl tracking-wider"></p>
+                        </div>
+
+                        <div class="mt-6 flex justify-center h-[35px] text-sm tracking-wider gap-1">
+                            <button id="generate" class="border-2 border-black rounded-md w-[100px] bg-black text-white font-semibold">GENERATE</button>
+                            <button id="reset" class="border-2 border-black rounded-md w-[80px] font-semibold">RESET</button>
+                        </div>
+                    </div>
+                    <div class="p-2 w-[270px] h-[180px]">
+                        <p class="text-sm">#2336FB</p>
+                        <p class="text-sm">#497068</p>
+                        <p class="text-sm">#599F96</p>
+                        <p class="text-sm">#1544C7</p>
+                        <p class="text-sm">#3542AF</p>
+                        <p class="text-sm">#15FCA9</p>
+                        <p class="text-sm">#10EF55</p>
+                        <p class="text-sm">#722031</p>
+                    </div>
+                    <div class="w-[270px] h-[180px] bg-blue-500">
+
+                    </div>
                 </div>
             </div>
         </div>
+
+
         <script src="tp9Script.js"></script>
          
 </body>
 </html>
-
