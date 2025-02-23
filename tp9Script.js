@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('increase').addEventListener('mouseout', handleMouseOut);
     document.getElementById('reset').addEventListener('mouseover', handleMouseOver);
     document.getElementById('reset').addEventListener('mouseout', handleMouseOut);
-    d
 });
 //Ex02
 
@@ -52,19 +51,39 @@ class Color{
     records = [];
 
     constructor(type){
-        this.colorType = type;
+        this.colorType = document.getElementById(type).innerHTML;      
     }
 
     generate(){
-
+        this.colorType = this.getRandomNumber();
+        document.getElementById('display_hexa').innerHTML = this.colorType;
+        document.getElementById('display_hexa').style.color = this.colorType;
+        document.getElementById('display_color').style.backgroundColor = this.colorType;
+        document.getElementById('display_color1').style.backgroundColor = this.colorType;
     }
     getRandomNumber(){
-        
+        return this.records[Math.floor(Math.random() * this.records.length)];
     }
     getRecords(){
-
-    }
-    reset(){
+        for(let i=0; i<8; i++){
+            this.records[i] = document.getElementById('color' + (i+1)).innerHTML;
+        }
         
     }
+    reset(){
+        this.colorType = '#2336FB';
+        document.getElementById('display_hexa').innerHTML = this.colorType;
+        document.getElementById('display_hexa').style.color = this.colorType;
+        document.getElementById('display_color').style.backgroundColor = this.colorType;
+        document.getElementById('display_color1').style.backgroundColor = this.colorType;
+    }
+}
+
+const color = new Color('display_color');
+function generate(){
+    color.getRecords();
+    color.generate();
+}
+function reset(){
+    color.reset();
 }
