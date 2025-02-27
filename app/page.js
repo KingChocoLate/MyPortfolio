@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Odom's Portfolio</title>
-</head>
-<body class="bg-gray-950 text-white">
+import Image from "next/image";
+
+export default function Home() {
+  return (
+    <body class="bg-gray-950 text-white">
     <div class="mx-16 mt-5 flex flex-col items-center w-auto h-[50px] text-[10px] gap-5">
         <div class="flex justify-between w-full opacity-25">
             <div>freedomearning123@gmail.com</div>
@@ -41,4 +37,5 @@
 
     <script src="PortfolioJs.js"></script>
 </body>
-</html>
+  );
+}
