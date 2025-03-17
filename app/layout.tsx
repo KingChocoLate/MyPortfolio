@@ -44,8 +44,8 @@ export default function RootLayout({
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
             <GlobalNav />
-            <div className="lg:pl-72">
-              <div className="mx-auto max-w-4xl space-y-8 px-2 pt-20 lg:px-8 lg:py-8">
+            <div className="lg:pl-72 ">
+              <div className="mx-auto max-w-8xl space-y-8 px-2 pt-20 lg:px-8 lg:py-8 ">
                 <div className="rounded-lg bg-vc-border-gradient p-px shadow-lg shadow-black/20">
                   <div className="rounded-lg ">
                     <TopBar />
