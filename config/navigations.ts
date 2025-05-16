@@ -1,7 +1,15 @@
+import {
+  ArrowLeftStartOnRectangleIcon,
+  BookOpenIcon,
+  ClockIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/solid";
+import { ElementType } from "react";
+
 export type Item = {
   name: string;
   slug: string;
-  description?: string;
+  icon: ElementType;
 };
 
 export const navigations: { name: string; items: Item[] }[] = [
@@ -11,17 +19,22 @@ export const navigations: { name: string; items: Item[] }[] = [
       {
         name: "Learning",
         slug: "learning",
-        description: "Enjoy learning here!",
+        icon: BookOpenIcon,
       },
       {
         name: "History",
         slug: "history",
-        description: "View your history here!",
+        icon: ClockIcon,
       },
       {
         name: "Profile",
         slug: "profile",
-        description: "Here is your profile!",
+        icon: UserCircleIcon,
+      },
+      {
+        name: "Exit",
+        slug: "exit",
+        icon: ArrowLeftStartOnRectangleIcon,
       },
     ],
   },

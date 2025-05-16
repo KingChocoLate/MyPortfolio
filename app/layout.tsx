@@ -6,8 +6,8 @@ import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import { TopBar } from "./ui/top-bar";
-import { GlobalNav } from "./ui/global-nav";
+import { TopBar } from "../components/top-bar";
+import { GlobalNav } from "../components/global-nav";
 
 export const metadata: Metadata = {
   title: {
@@ -41,35 +41,18 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
+        <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
+          <div className="relative flex flex-col h-screen bg-blue-100">
             <GlobalNav />
-            <div className="lg:pl-72 ">
-              <div className="mx-auto max-w-8xl space-y-8 px-2 pt-20 lg:px-8 lg:py-8 ">
-                <div className="rounded-lg bg-vc-border-gradient p-px shadow-lg shadow-black/20">
-                  <div className="rounded-lg ">
-                    <TopBar />
-                  </div>
-                </div>
-                <div className="rounded-lg bg-vc-border-gradient p-px shadow-lg shadow-black/20">
-                  <div className="rounded-lg  p-3.5 lg:p-6">{children}</div>
+
+            <div className="lg:pl-72">
+              <div className="mx-auto max-w-8xl space-y-8 px-2 pt-20 lg:px-8 lg:py-8">
+                <TopBar />
+                <div className="p-px bg-white">
+                  <div>{children}</div>
                 </div>
               </div>
             </div>
-            {/* <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-              {children}
-            </main> */}
-            {/* <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://heroui.com?utm_source=next-app-template"
-                title="heroui.com homepage"
-              >
-                <span className="text-default-600">Powered by</span>
-                <p className="text-primary">HeroUI</p>
-              </Link>
-            </footer> */}
           </div>
         </Providers>
       </body>
