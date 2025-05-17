@@ -1,0 +1,10 @@
+{
+  "greeting": "Hello",
+  "sidebar": {
+    "learning": "Learning",
+    "history": "History",
+    "profile": "Profile",
+    "information": "Information",
+    "exit": "Exit"
+  }
+}

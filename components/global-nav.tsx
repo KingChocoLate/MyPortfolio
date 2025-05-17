@@ -1,15 +1,19 @@
 "use client";
 
 import { useSelectedLayoutSegment } from "next/navigation";
-import { Item, navigations } from "../config/navigations";
+import { getNavigations, Item } from "../config/navigations";
 import Link from "next/link";
 import clsx from "clsx";
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import { useLocale, useTranslations } from "next-intl";
 
 export function GlobalNav() {
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
+  const t = useTranslations();
+  const locale = useLocale();
+  const navigations = getNavigations(t);
 
   return (
     <div className="fixed top-0 z-10 flex w-full flex-col lg:bottom-0 lg:z-auto lg:w-72 lg:border-b-0 bg-white">

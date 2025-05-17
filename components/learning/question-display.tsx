@@ -1,6 +1,10 @@
 "use client";
 import { Question } from "@/lib/types";
 import { useState } from "react";
+import QuestionContent from "./question-display/question-content";
+import QuestionTabs from "./question-display/question-tabs";
+import QuestionTabPanel from "./question-display/question-tab-panel";
+import QuestionSidebar from "./question-display/question-sidebar";
 
 export default function QuestionDisplay({
   questions,
@@ -11,6 +15,10 @@ export default function QuestionDisplay({
   const [completed, setCompleted] = useState<boolean[]>(
     questions.map((q) => q.isCompleted)
   );
+  const [activeTab, setActiveTab] = useState<
+    "note" | "chatbot" | "hint" | "report"
+  >("note");
+  const [showSidebar, setShowSidebar] = useState(true);
 
   const markComplete = () => {
     const newStatus = [...completed];
@@ -18,38 +26,37 @@ export default function QuestionDisplay({
     setCompleted(newStatus);
   };
 
+  const currentQuestion = questions[currentIndex];
+
   return (
-    <div className="flex flex-col lg:flex-row gap-4">
-      {/* Main Question Panel */}
+    <div className="flex flex-col lg:flex-row gap-4 relative">
+      {/* Sidebar Toggle Button */}
+      <button
+        onClick={() => setShowSidebar(!showSidebar)}
+        className="lg:hidden fixed top-4 right-4 z-20 bg-blue-600 text-white px-3 py-1 rounded shadow"
+      >
+        {showSidebar ? "Hide List" : "Show List"}
+      </button>
+
+      {/* Main Question Area */}
       <div className="flex-1 bg-white rounded shadow p-4">
         <h2 className="text-xl font-bold">Question {currentIndex + 1}</h2>
-        <p className="mt-2">{questions[currentIndex].text}</p>
-        <button
-          onClick={markComplete}
-          className="mt-4 bg-blue-600 text-white px-4 py-2 rounded"
-        >
-          Mark as Done
-        </button>
+        <QuestionContent
+          questionText={currentQuestion.text}
+          onMarkDone={markComplete}
+        />
+        <QuestionTabs activeTab={activeTab} onTabChange={setActiveTab} />
+        <QuestionTabPanel activeTab={activeTab} hint={currentQuestion.hint} />
       </div>
 
       {/* Sidebar */}
-      <div className="w-full lg:w-64 bg-white rounded shadow p-4">
-        <h3 className="text-lg font-semibold mb-2">Question List</h3>
-        <ul className="space-y-2">
-          {questions.map((q, i) => (
-            <li
-              key={q.id}
-              onClick={() => setCurrentIndex(i)}
-              className={`cursor-pointer flex items-center gap-2 ${
-                i === currentIndex ? "font-bold text-blue-600" : ""
-              }`}
-            >
-              <input type="checkbox" checked={completed[i]} readOnly />
-              <span className="truncate">{q.text}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <QuestionSidebar
+        visible={showSidebar}
+        questions={questions}
+        currentIndex={currentIndex}
+        completed={completed}
+        onSelect={setCurrentIndex}
+      />
     </div>
   );
 }

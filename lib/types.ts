@@ -2,6 +2,7 @@ export type Question = {
   id: string;
   text: string;
   isCompleted: boolean;
+  hint: string;
 };
 
 export type Subject = {

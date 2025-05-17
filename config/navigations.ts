@@ -2,8 +2,9 @@ import {
   ArrowLeftStartOnRectangleIcon,
   BookOpenIcon,
   ClockIcon,
+  InformationCircleIcon,
   UserCircleIcon,
-} from "@heroicons/react/24/solid";
+} from "@heroicons/react/24/outline";
 import { ElementType } from "react";
 
 export type Item = {
@@ -12,27 +13,34 @@ export type Item = {
   icon: ElementType;
 };
 
-export const navigations: { name: string; items: Item[] }[] = [
+export const getNavigations = (
+  t: (key: string) => string
+): { name: string; items: Item[] }[] => [
   {
     name: "Learning",
     items: [
       {
-        name: "Learning",
+        name: t("sidebar.learning"),
         slug: "learning",
         icon: BookOpenIcon,
       },
       {
-        name: "History",
+        name: t("sidebar.history"),
         slug: "history",
         icon: ClockIcon,
       },
       {
-        name: "Profile",
+        name: t("sidebar.profile"),
         slug: "profile",
         icon: UserCircleIcon,
       },
       {
-        name: "Exit",
+        name: t("sidebar.information"),
+        slug: "information",
+        icon: InformationCircleIcon,
+      },
+      {
+        name: t("sidebar.exit"),
         slug: "exit",
         icon: ArrowLeftStartOnRectangleIcon,
       },
