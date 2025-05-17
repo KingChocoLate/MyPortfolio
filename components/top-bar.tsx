@@ -9,6 +9,7 @@ import { BellAlertIcon as BellAlertSolid } from "@heroicons/react/24/solid";
 import { BellAlertIcon as BellAlertOutline } from "@heroicons/react/24/outline";
 import LanguageSwitcher from "./language-switch";
 import { useState } from "react";
+import { Badge } from "@heroui/badge";
 
 export const TopBar = () => {
   const [hover, setHover] = useState(false);
@@ -35,17 +36,19 @@ export const TopBar = () => {
         <div className="flex gap-4 items-center">
           <LanguageSwitcher />
           <ThemeSwitch />
-          <div
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            className="w-6 h-6 cursor-pointer"
-          >
-            {hover ? (
-              <BellAlertSolid className="w-6 h-6" />
-            ) : (
-              <BellAlertOutline className="w-6 h-6" />
-            )}
-          </div>
+          <Badge color="danger" content="9" shape="circle">
+            <div
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+              className="w-6 h-6 cursor-pointer"
+            >
+              {hover ? (
+                <BellAlertSolid className="w-6 h-6" />
+              ) : (
+                <BellAlertOutline className="w-6 h-6" />
+              )}
+            </div>
+          </Badge>
         </div>
       </div>
     </HeroUINavbar>

@@ -16,7 +16,7 @@ export function GlobalNav() {
   const navigations = getNavigations(t);
 
   return (
-    <div className="fixed top-0 z-10 flex w-full flex-col lg:bottom-0 lg:z-auto lg:w-72 lg:border-b-0 bg-white">
+    <div className="fixed top-0 z-50 flex w-full flex-col lg:bottom-0 lg:z-auto lg:w-72 lg:border-b-0 bg-white">
       <div className="flex h-14 items-center px-4 py-4 lg:h-auto">
         <Link
           href="/"

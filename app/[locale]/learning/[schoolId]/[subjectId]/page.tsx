@@ -1,13 +1,17 @@
 import QuestionDisplay from "@/components/learning/question-display";
 import { schools } from "@/lib/mockData";
 
-export default function SubjectQuestionPage({
-  params,
-}: {
-  params: { schoolId: string; subjectId: string };
-}) {
-  const school = schools.find((s) => s.id === params.schoolId);
-  const subject = school?.subjects.find((s) => s.id === params.subjectId);
+type Props = {
+  params: {
+    schoolId: string;
+    subjectId: string;
+  };
+};
+
+export default async function SubjectQuestionPage({ params }: Props) {
+  const { schoolId, subjectId } = await params;
+  const school = schools.find((s) => s.id === schoolId);
+  const subject = school?.subjects.find((s) => s.id === subjectId);
   if (!subject) return <div>Subject not found</div>;
 
   return (

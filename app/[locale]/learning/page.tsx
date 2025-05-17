@@ -1,7 +1,7 @@
 import SchoolDisplayCard from "@/components/learning/school-display-card";
 import UserWelcomeCard from "@/components/learning/use-welcome-card";
-import { schools } from "@/lib/mockData";
 import Link from "next/link";
+import { schools } from "@/lib/mockData";
 
 export default function LearningPage() {
   return (
