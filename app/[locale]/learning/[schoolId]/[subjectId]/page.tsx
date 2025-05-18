@@ -1,5 +1,5 @@
 import QuestionDisplay from "@/components/learning/question-display";
-import { schools } from "@/lib/mockData";
+import { schools } from "@/lib/school-mock-data";
 
 type Props = {
   params: {

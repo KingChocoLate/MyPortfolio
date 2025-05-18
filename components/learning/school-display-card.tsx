@@ -1,3 +1,4 @@
+import { BookOpenIcon } from "@heroicons/react/24/outline";
 import React from "react";
 
 type SchoolDisplayCardProps = {
@@ -20,7 +21,10 @@ function SchoolDisplayCard({
       />
       <div className="text-center">
         <h3 className="text-xl font-semibold text-gray-800">{schoolName}</h3>
-        <p className="text-sm text-gray-600">{subjectCount} subjects</p>
+        <div className="flex">
+          <BookOpenIcon className="w-5 h-5 text-gray-500" />
+          <p className="text-sm text-gray-600">{subjectCount} subjects</p>
+        </div>
       </div>
     </div>
   );

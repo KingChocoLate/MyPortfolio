@@ -1,5 +1,5 @@
 import SubjectDisplayCard from "@/components/learning/subject-display-card";
-import { schools } from "@/lib/mockData";
+import { schools } from "@/lib/school-mock-data";
 import Link from "next/link";
 
 type Props = {

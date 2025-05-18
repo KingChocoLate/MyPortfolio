@@ -1,19 +1,37 @@
 "use client";
 
+import { useState } from "react";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { getNavigations, Item } from "../config/navigations";
 import Link from "next/link";
 import clsx from "clsx";
-import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useLocale, useTranslations } from "next-intl";
+import ConfirmExitPopup from "./confirm-exit-popup";
 
 export function GlobalNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showExitPopup, setShowExitPopup] = useState(false);
+
   const close = () => setIsOpen(false);
   const t = useTranslations();
   const locale = useLocale();
   const navigations = getNavigations(t);
+
+  const handleExitClick = () => {
+    setShowExitPopup(true);
+  };
+
+  const confirmExit = () => {
+    setShowExitPopup(false);
+    // 👉 Add your logout or redirect logic here
+    console.log("User confirmed exit");
+    window.location.href = "/"; // or use router.push("/logout")
+  };
+
+  const cancelExit = () => {
+    setShowExitPopup(false);
+  };
 
   return (
     <div className="fixed top-0 z-50 flex w-full flex-col lg:bottom-0 lg:z-auto lg:w-72 lg:border-b-0 bg-white">
@@ -48,19 +66,28 @@ export function GlobalNav() {
         })}
       >
         <nav>
-          {navigations.map((section) => {
-            return (
-              <div key={section.name}>
-                <div className="space-y-1">
-                  {section.items.map((item) => (
-                    <GlobalNavItem key={item.slug} item={item} close={close} />
-                  ))}
-                </div>
+          {navigations.map((section) => (
+            <div key={section.name}>
+              <div className="space-y-1">
+                {section.items.map((item) => (
+                  <GlobalNavItem
+                    key={item.slug}
+                    item={item}
+                    close={close}
+                    onExitClick={handleExitClick}
+                  />
+                ))}
               </div>
-            );
-          })}
+            </div>
+          ))}
         </nav>
       </div>
+
+      <ConfirmExitPopup
+        isOpen={showExitPopup}
+        onCancel={cancelExit}
+        onConfirm={confirmExit}
+      />
     </div>
   );
 }
@@ -68,18 +95,29 @@ export function GlobalNav() {
 function GlobalNavItem({
   item,
   close,
+  onExitClick,
 }: {
   item: Item;
   close: () => false | void;
+  onExitClick?: () => void;
 }) {
   const segment = useSelectedLayoutSegment();
   const isActive = item.slug === segment;
-
   const Icon = item.icon;
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (item.slug === "exit") {
+      e.preventDefault();
+      onExitClick?.();
+    } else {
+      close();
+    }
+  };
 
   return (
     <Link
-      href={`/${item.slug}`}
+      href={item.slug === "exit" ? "#" : `/${item.slug}`}
+      onClick={handleClick}
       className={clsx(
         "flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:text-gray-300",
         {

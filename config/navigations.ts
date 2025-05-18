@@ -30,15 +30,16 @@ export const getNavigations = (
         icon: ClockIcon,
       },
       {
-        name: t("sidebar.profile"),
-        slug: "profile",
-        icon: UserCircleIcon,
-      },
-      {
         name: t("sidebar.information"),
         slug: "information",
         icon: InformationCircleIcon,
       },
+      {
+        name: t("sidebar.profile"),
+        slug: "profile",
+        icon: UserCircleIcon,
+      },
+
       {
         name: t("sidebar.exit"),
         slug: "exit",
