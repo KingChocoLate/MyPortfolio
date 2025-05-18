@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
+import { fontEnglish, fontKhmer } from "@/config/fonts";
 import { TopBar } from "../../components/top-bar";
 import { GlobalNav } from "../../components/global-nav";
 import { notFound } from "next/navigation";
@@ -42,15 +42,17 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+  const isKhmer = locale === "kh";
 
+  const htmlClassName = clsx(
+    isKhmer ? fontKhmer.variable : fontEnglish.variable,
+    isKhmer ? "font-khmer" : "font-english"
+  );
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning className={htmlClassName}>
       <head />
       <body
-        className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
+        className={clsx("min-h-screen bg-background font-sans antialiased")}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <NextIntlClientProvider>

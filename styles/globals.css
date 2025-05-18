@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --font-khmer: "Kantumruy Pro", sans-serif;
+  --font-english: "Roboto", sans-serif;
+}
+
+/* Dynamically change this var with html class */
+html.font-khmer {
+  --active-font: var(--font-khmer);
+}
+
+html.font-english {
+  --active-font: var(--font-english);
+}
