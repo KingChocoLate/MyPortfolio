@@ -23,7 +23,7 @@ function SubjectDisplayCard({
       <img
         src={subjectImage}
         alt={subjectName}
-        className="w-full h-32 object-cover rounded-md mb-3"
+        className="w-20 h-20 object-cover rounded-md mb-3"
       />
       <h3 className="text-lg font-semibold mb-1">{subjectName}</h3>
       <p className="text-sm text-gray-600 mb-2">

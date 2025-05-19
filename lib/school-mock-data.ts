@@ -3,13 +3,15 @@ import type { School } from "./types";
 export const schools: School[] = [
   {
     id: "s1",
-    schoolImage: "/images/schools/school1.png",
+    schoolImage:
+      "https://res.cloudinary.com/djeq0lcxy/image/upload/v1747625425/Institute_of_Technology_of_Cambodia_logo_wbvh7d.png",
     schoolName: "Bak Touk High School",
     subjects: [
       {
         id: "sub1",
         subjectName: "Mathematics",
-        subjectImage: "/images/subjects/physics.png",
+        subjectImage:
+          "https://res.cloudinary.com/djeq0lcxy/image/upload/v1747625425/Institute_of_Technology_of_Cambodia_logo_wbvh7d.png",
         questions: [
           {
             id: "q1",
@@ -187,7 +189,8 @@ export const schools: School[] = [
   },
   {
     id: "s2",
-    schoolImage: "/images/schools/school2.png",
+    schoolImage:
+      "https://res.cloudinary.com/djeq0lcxy/image/upload/v1747625425/Institute_of_Technology_of_Cambodia_logo_wbvh7d.png",
     schoolName: "Sisowath High School",
     subjects: [
       {
