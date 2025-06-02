@@ -13,13 +13,13 @@ function SchoolDisplayCard({
   subjectCount,
 }: SchoolDisplayCardProps) {
   return (
-    <div className="w-full max-w-sm rounded-lg border bg-white p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
+    <div className="w-full max-w-sm h-full rounded-lg border bg-white p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
       <img
         src={schoolImage}
         alt={schoolName}
-        className="h-40 w-full rounded-md object-cover mb-4"
+        className="h-50 w-full rounded-md object-cover mb-4"
       />
-      <div className="text-center">
+      <div className="text-left">
         <h3 className="text-xl font-semibold text-gray-800">{schoolName}</h3>
         <div className="flex">
           <BookOpenIcon className="w-5 h-5 text-gray-500" />

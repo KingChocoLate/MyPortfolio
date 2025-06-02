@@ -8,7 +8,7 @@ type UserWelcomeCardProps = {
 
 function UserWelcomeCard({ username, role, image }: UserWelcomeCardProps) {
   return (
-    <div className="flex items-center gap-4 border shadow-md bg-white">
+    <div className="flex items-center gap-4 pl-6 border shadow-md bg-white">
       <img
         src={image}
         alt={`${username}'s profile`}

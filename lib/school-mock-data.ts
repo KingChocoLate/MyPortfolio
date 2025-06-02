@@ -5,7 +5,7 @@ export const schools: School[] = [
     id: "s1",
     schoolImage:
       "https://res.cloudinary.com/djeq0lcxy/image/upload/v1747625425/Institute_of_Technology_of_Cambodia_logo_wbvh7d.png",
-    schoolName: "Bak Touk High School",
+    schoolName: "វិទ្យាស្ថានបច្ចេកវិទ្យាកម្ពុជា",
     subjects: [
       {
         id: "sub1",
@@ -190,8 +190,8 @@ export const schools: School[] = [
   {
     id: "s2",
     schoolImage:
-      "https://res.cloudinary.com/djeq0lcxy/image/upload/v1747625425/Institute_of_Technology_of_Cambodia_logo_wbvh7d.png",
-    schoolName: "Sisowath High School",
+      "https://res.cloudinary.com/dzv70sjv1/image/upload/v1748778147/UHS_Cambodia_logo_q7oxmf.png",
+    schoolName: "សកលវិទ្យាល័យវិទ្យាសាស្រ្ដសុខាភិបាល",
     subjects: [
       {
         id: "sub4",
@@ -228,4 +228,54 @@ export const schools: School[] = [
       },
     ],
   },
+  {
+    id: "s3",
+    schoolImage:
+      "https://res.cloudinary.com/dzv70sjv1/image/upload/v1748779297/rupplogo_eby7u6.png",
+    schoolName: "សកលវិទ្យាល័យភូមិន្ទភ្នំពេញ",
+    subjects: [
+      {
+        id: "sub5",
+        subjectName: "Biology",
+        subjectImage: "/images/subjects/biology.png",
+        questions: [
+          {
+            id: "q1",
+            text: "Explain the process of photosynthesis and write the balanced chemical equation for it.",
+            isCompleted: false,
+            hint: "Photosynthesis occurs in chloroplasts and uses sunlight, water, and carbon dioxide.",
+            options: [
+              { id: "a", text: "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂" },
+              { id: "b", text: "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O" },
+              { id: "c", text: "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O" },
+              { id: "d", text: "C₆H₁₂O₆ + O₂ → CO₂ + H₂O" },
+            ],
+            correctOptionId: "a",
+          },
+          {
+            id: "q2",
+            text: "What is the function of mitochondria in eukaryotic cells? Explain its role in cellular respiration.",
+            isCompleted: false,
+            hint: "Mitochondria are known as the powerhouse of the cell.",
+            options: [
+              { id: "a", text: "Energy production through ATP synthesis" },
+              { id: "b", text: "Protein synthesis" },
+              { id: "c", text: "Photosynthesis" },
+              { id: "d", text: "Cell division" },
+            ],
+            correctOptionId: "a",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "s4",
+    schoolImage: 
+      "https://res.cloudinary.com/dzv70sjv1/image/upload/v1748779455/uplogo_by0pjf.jpg",
+    schoolName: "សកលវិទ្យាល័យពុទ្ធិសាស្រ្ដ(UP)",
+    subjects: [
+
+    ],
+  }
 ];
